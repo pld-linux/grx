@@ -10,7 +10,7 @@ Summary:	2D graphics C library
 Summary(pl):	Biblioteka w C do grafiki 2D
 Name:		grx
 Version:	2.4.5
-%define		tar_version	%(echo %{version} | sed 's:\\.::g')
+%define		tar_version	%(echo %{version} | tr -d .)
 Release:	1
 License:	LGPL
 Group:		Libraries
