@@ -31,6 +31,10 @@ URL:		http://www.gnu.de/software/GRX/download/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+GRX is a 2D graphics C library originaly written by Csaba Biegl for
+DJ Delorie's DOS port of the GCC compiler. Now it support a big range
+of platforms, the main four are: DOS (DJGPPv2), Linux console, X11 and
+Win32 (Mingw).
 
 %description -l pl
 
