@@ -15,6 +15,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnu.de/software/GRX/download/%{name}%{tar_version}.tar.gz
+# Source0-md5:	6b14fcdfe993f12521333ffd1edbfb8f
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.gnu.de/software/GRX/download/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
