@@ -6,28 +6,17 @@
 # _without_jpeg:	disable JPEG support
 # _without_tiff:	disable TIFF support
 #
-Summary:	-
-Summary(pl):	-
+Summary:	2D graphics C library
+Summary(pl):	Biblioteka w C do grafiki 2D
 Name:		grx
 Version:	2.4.5
 %define		tar_version	%(echo %{version} | sed 's:\\.::g')
 Release:	1
 License:	LGPL
 Group:		Libraries
-Vendor:		-
-#Icon:		-
 Source0:	http://www.gnu.de/software/GRX/download/%{name}%{tar_version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.gnu.de/software/GRX/download/
-#BuildRequires:	-
-#PreReq:		-
-#Requires:	-
-#Requires(pre,post):	-
-#Requires(preun):	-
-#Requires(postun):	-
-#Provides:	-
-#Obsoletes:	-
-#Conflicts:	-
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,24 +26,34 @@ of platforms, the main four are: DOS (DJGPPv2), Linux console, X11 and
 Win32 (Mingw).
 
 %description -l pl
+GRX to biblioteka w C do grafiki 2D, oryginalnie napisana przez Csabê
+Biegla dla dosowego portu DJ Delorie kompilatora GCC. Teraz obs³uguje
+wiele platform, g³ównymi s±: DOS (DJGPPv2), konsola Linuksa, X11 oraz
+Win32 (Mingw).
 
 %package devel
-Summary:	-
-Summary(pl):	-
-Group:		-
+Summary:	Header files for grx library
+Summary(pl):	Pliki nag³ówkowe biblioteki grx
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
 
 %description devel
+Header files for grx library.
 
 %description devel -l pl
+Pliki nag³ówkowe biblioteki grx.
 
 %package static
-Summary:	-
-Summary(pl):	-
-Group:		-
+Summary:	Static grx library
+Summary(pl):	Statyczna biblioteka grx
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
 
 %description static
+Static grx library.
 
 %description static -l pl
+Statyczna biblioteka grx.
 
 %prep
 %setup -q -n %{name}%{tar_version}
@@ -80,7 +79,7 @@ Group:		-
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
+#install -d $RPM_BUILD_ROOT
 
 %{__make} install	DESTDIR=$RPM_BUILD_ROOT
 %{__make} install-bin	DESTDIR=$RPM_BUILD_ROOT
@@ -102,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/watcom.txt
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*.h
 
 %files static
