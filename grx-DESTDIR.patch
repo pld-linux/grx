@@ -1,0 +1,21 @@
+diff -ur grx245.orig/configure grx245/configure
+--- grx245.orig/configure	Wed Oct 16 22:39:58 2002
++++ grx245/configure	Sun Mar  2 13:18:15 2003
+@@ -239,7 +239,7 @@
+ if [ x"$fontpath" = x ]; then
+   subst_fontpath="/^#*GRX_DEFAULT_FONT_PATH=/s/^#*/#/"
+ else
+-  subst_fontpath="/^#*GRX_DEFAULT_FONT_PATH=/{s/^#*//;s|=.*|=$fontpath|;}"
++  subst_fontpath="/^#*GRX_DEFAULT_FONT_PATH=/{s/^#*//;s|=.*|=\$(DESTDIR)$fontpath|;}"
+ fi
+ 
+ if sed -e "/^HAVE_LIBTIFF=/s/=.*/=$HAVE_LIBTIFF/;
+@@ -257,7 +257,7 @@
+            /^SET_SUIDROOT=/s/=.*/=$SET_SUIDROOT/;
+            /^USE_INOUTP_FRAMEDRIVERS=/s/=.*/=$USE_INOUTP_FRAMEDRIVERS/;
+            /^ifdef $cfgsection\$/,/^endif\$/{
+-             /^INSTALLDIR=/s|=.*|=$prefix|;
++             /^INSTALLDIR=/s|=.*|=\$(DESTDIR)$prefix|;
+              /^X11BASE=/s|=.*|=$x11base|;
+              $subst_fontpath;
+              /^X11LIBS=/s/\$/$lsocket/;
