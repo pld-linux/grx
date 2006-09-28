@@ -6,11 +6,11 @@
 %bcond_without	jpeg		# disable JPEG support
 %bcond_without	tiff		# disable TIFF support
 #
+%define		tar_version	%(echo %{version} | tr -d .)
 Summary:	2D graphics C library
 Summary(pl):	Biblioteka w C do grafiki 2D
 Name:		grx
 Version:	2.4.5
-%define		tar_version	%(echo %{version} | tr -d .)
 Release:	2
 License:	LGPL
 Group:		Libraries
@@ -21,9 +21,9 @@ URL:		http://www.gnu.de/software/GRX/download/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GRX is a 2D graphics C library originaly written by Csaba Biegl for
-DJ Delorie's DOS port of the GCC compiler. Now it support a big range
-of platforms, the main four are: DOS (DJGPPv2), Linux console, X11 and
+GRX is a 2D graphics C library originaly written by Csaba Biegl for DJ
+Delorie's DOS port of the GCC compiler. Now it support a big range of
+platforms, the main four are: DOS (DJGPPv2), Linux console, X11 and
 Win32 (Mingw).
 
 %description -l pl
@@ -36,7 +36,7 @@ Win32 (Mingw).
 Summary:	Header files for grx library
 Summary(pl):	Pliki nag³ówkowe biblioteki grx
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for grx library.
@@ -48,7 +48,7 @@ Pliki nag³ówkowe biblioteki grx.
 Summary:	Static grx library
 Summary(pl):	Statyczna biblioteka grx
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description static
 Static grx library.
@@ -62,18 +62,18 @@ Statyczna biblioteka grx.
 
 %build
 ./configure \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--target=X11 \
-%{?with_jpeg:--enable-jpeg} \
+	%{?with_jpeg:--enable-jpeg} \
 	--enable-png \
 	--enable-z \
 	--enable-png-z \
-%{?with_tiff:--enable-tiff} \
-%{?with_bmp:--enable-bmp} \
+	%{?with_tiff:--enable-tiff} \
+	%{?with_bmp:--enable-bmp} \
 	--enable-print \
-%{?with_gpc:--enable-gpc} \
+	%{?with_gpc:--enable-gpc} \
 	--enable-shared \
-%{?with_bgi:--enable-bgi} \
+	%{?with_bgi:--enable-bgi} \
 	--with-fontpath=/usr/share/grx/fonts
 
 %{__make} \
