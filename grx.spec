@@ -8,7 +8,7 @@
 #
 %define		tar_version	%(echo %{version} | tr -d .)
 Summary:	2D graphics C library
-Summary(pl):	Biblioteka w C do grafiki 2D
+Summary(pl.UTF-8):   Biblioteka w C do grafiki 2D
 Name:		grx
 Version:	2.4.5
 Release:	2
@@ -26,34 +26,34 @@ Delorie's DOS port of the GCC compiler. Now it support a big range of
 platforms, the main four are: DOS (DJGPPv2), Linux console, X11 and
 Win32 (Mingw).
 
-%description -l pl
-GRX to biblioteka w C do grafiki 2D, oryginalnie napisana przez CsabÍ
-Biegla dla dosowego portu DJ Delorie kompilatora GCC. Teraz obs≥uguje
-wiele platform, g≥Ûwnymi s±: DOS (DJGPPv2), konsola Linuksa, X11 oraz
+%description -l pl.UTF-8
+GRX to biblioteka w C do grafiki 2D, oryginalnie napisana przez Csabƒô
+Biegla dla dosowego portu DJ Delorie kompilatora GCC. Teraz obs≈Çuguje
+wiele platform, g≈Ç√≥wnymi sƒÖ: DOS (DJGPPv2), konsola Linuksa, X11 oraz
 Win32 (Mingw).
 
 %package devel
 Summary:	Header files for grx library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki grx
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki grx
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for grx library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki grx.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki grx.
 
 %package static
 Summary:	Static grx library
-Summary(pl):	Statyczna biblioteka grx
+Summary(pl.UTF-8):   Statyczna biblioteka grx
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description static
 Static grx library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka grx.
 
 %prep
