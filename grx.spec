@@ -8,7 +8,7 @@
 #
 %define		tar_version	%(echo %{version} | tr -d .)
 Summary:	2D graphics C library
-Summary(pl.UTF-8):   Biblioteka w C do grafiki 2D
+Summary(pl.UTF-8):	Biblioteka w C do grafiki 2D
 Name:		grx
 Version:	2.4.5
 Release:	2
@@ -34,7 +34,7 @@ Win32 (Mingw).
 
 %package devel
 Summary:	Header files for grx library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki grx
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki grx
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -46,7 +46,7 @@ Pliki nagłówkowe biblioteki grx.
 
 %package static
 Summary:	Static grx library
-Summary(pl.UTF-8):   Statyczna biblioteka grx
+Summary(pl.UTF-8):	Statyczna biblioteka grx
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
